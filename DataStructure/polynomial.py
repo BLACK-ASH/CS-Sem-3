@@ -13,7 +13,9 @@ class Polynomial:
         curr = self.head
         equation = ""
         while curr:
-            if curr.c > 0:
+            if curr.c == 0:
+                equation += ""
+            elif curr.c > 0:
                 equation += (f" + {curr.c}{curr.v}^{curr.e} ") 
             else:
                 equation += (f" {curr.c}{curr.v}^{curr.e} ") 
@@ -31,7 +33,7 @@ class Polynomial:
         if e >= curr.e:
             # If Variable With Same Power Exist
             if curr.v == v and curr.e==e:
-                curr.c +=c
+                curr.c += c
                 return True
                 
             newNode = Node(c,v,e,curr)
@@ -47,9 +49,9 @@ class Polynomial:
             curr = curr.nextNode
 
         # 2. Adding Node
-         # If Variable With Same Power Exist
+        # If Variable With Same Power Exist
         if curr.v == v and curr.e==e:
-            curr.c +=c
+            curr.c += c
             return True
         
         newNode = Node(c,v,e,curr.nextNode)
@@ -60,6 +62,13 @@ class Polynomial:
         curr = e.head
         while curr:
             self.insert(curr.c,curr.v,curr.e)
+            curr = curr.nextNode
+        return True
+
+    def subtract(self,e):
+        curr = e.head
+        while curr:
+            self.insert(-curr.c,curr.v,curr.e)
             curr = curr.nextNode
         return True
             
@@ -80,4 +89,8 @@ e.print()
 
 # Adding Equation
 p.add(e)
+p.print()
+
+# Subtracting Equation
+p.subtract(e)
 p.print()
