@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="601a0f3f-31ed-44e9-ac8a-54176b223ce5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaPrograms.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/demoFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/demoLabel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/demoPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/demoButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +38,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "Application.demoButton.executor": "Run",
     "Application.demoFrame.executor": "Run",
     "Application.demoLabel.executor": "Run",
+    "Application.demoPanel.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
