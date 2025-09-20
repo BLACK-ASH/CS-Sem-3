@@ -1,42 +1,36 @@
 import threading
 import time
 
-def task(name,delay):
-    print(f"[{time.strftime('%H:%M:%S')}] Task {name} Started")
+def task(name, delay):
+    print(f"Task {name} started")
     time.sleep(delay)
-    print(f"[{time.strftime('%H:%M:%S')}] Task {name} Finshed")
+    print(f"Task {name} finished after {delay} seconds.")
 
-def sequential_execution():
-    print("")
-    print("-------- Sequential Execution ---------")
-    start = time.time()
+def singleThreaded():
+    startTime = time.time()
+    task("A", 2)
+    task("B", 2)
+    endTime = time.time()
+    print(f"Single-threaded execution time: {endTime - startTime} seconds")
 
-    task("A",3)
-    task("B",2)
-    task("C",1)
+def multiThreaded():
+    startTime = time.time()
 
-    end = time.time()
-    print(f"Total Time (Sequential) : {end-start:3f} s")
+    threadA = threading.Thread(target=task, args=("A", 2))
+    threadB = threading.Thread(target=task, args=("B", 2))
 
-def multi_threaded_execution():
-    print("")
-    print("-------- Multi Threaded Execution ---------")
-    start = time.time()
+    threadA.start()
+    threadB.start()
 
-    threads = [
-            threading.Thread(target=task,args=("A",3)),
-            threading.Thread(target=task,args=("B",2)),
-            threading.Thread(target=task,args=("C",1)),
-        ]
+    threadA.join()
+    threadB.join()
 
-    for t in threads:
-        t.start()
+    endTime = time.time()
+    print(f"Multi-threaded execution time: {endTime - startTime} seconds")
 
-    for t in threads:
-        t.join()
+if __name__ == "__main__":
+    print("Running single-threaded version")
+    singleThreaded()
 
-    end = time.time()
-    print(f"Total Time (Multi Threaded) : {end-start:3f} s")
-
-sequential_execution()
-multi_threaded_execution()
+    print("\nRunning multi-threaded version")
+    multiThreaded()
